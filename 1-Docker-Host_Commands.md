@@ -6,6 +6,7 @@
     mkdir -p c:\docker\weptop
     mkdir -p c:\docker\mount
     mkdir -p c:\docker\traefik
+    mkdir -p c:\docker\logs
 
 
 ## Create a Docker composer file
