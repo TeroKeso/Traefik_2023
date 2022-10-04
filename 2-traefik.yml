@@ -5,7 +5,7 @@ services:
     # The official v2 Traefik docker image
     image: traefik:v2.9
     # Enables the web UI and tells Traefik to listen to docker
-    command: --api.insecure=true --providers.docker --providers.docker.exposedByDefault=false #Logs#--log.filePath=/dockerdata/logs/traefik.log --log.level=DEBUG --accesslog=true --accesslog.filepath=/dockerdata/logs/traefik-access.log #Manual config#--configFile=/etc/traefik/traefik.yml
+    command: --api.insecure=true --providers.docker # Stop automatic Traefik port expose --providers.docker.exposedByDefault=false  # Logs --log.filePath=/dockerdata/logs/traefik.log --log.level=DEBUG --providers.docker.exposedByDefault=false --accesslog=true --accesslog.filepath=/dockerdata/logs/traefik-access.log
     
     ports:
       # The HTTP port
@@ -16,42 +16,40 @@ services:
       # So that Traefik can listen to the Docker events
       - /var/run/docker.sock:/var/run/docker.sock
 # We will need this on part 4.5
-      - C:\docker\mount:/mnt/basic-auth
-# We will need this on part 5 -->
-      - C:\docker\logs:/dockerdata/logs
-      - C:\docker\traefik\traefik.yml:/etc/traefik/traefik.yml
+#      - C:\docker\mount:/mnt/basic-auth
+#      - C:\docker\logs:/dockerdata/logs
 
 # 0 If you run this in Windows Computer you will need a environment variable
     environment:
      - COMPOSE_CONVERT_WINDOWS_PATHS=1
 ###########################################################################
-  whoami:
+#   whoami:
 # A container that exposes an API to show its IP address
-    image: traefik/whoami
-    labels:
-    - "traefik.http.routers.whoami.rule=Host(`whoami.docker.localhost`)"
+#    image: traefik/whoami
+#    labels:
+#    - "traefik.http.routers.whoami.rule=Host(`whoami.docker.localhost`)"
 
 #Part 2 
-  getting-started:
-   image: docker/getting-started
-   labels:
-    - "traefik.enable=true"
-    - "traefik.http.routers.started.rule=Host(`started.docker.localhost`)"
-    - "traefik.http.services.started.loadbalancer.server.port=80"
+#getting-started:
+#  image: docker/getting-started
+#  labels:
+#    - "traefik.enable=true"
+#    - "traefik.http.routers.started.rule=Host(`started.docker.localhost`)"
+#    - "traefik.http.services.started.loadbalancer.server.port=80"
 
 ##########################################################################  
 #Part 3
-  catapp:
+#  catapp:
 #     # Dog GIF generator. Version 1 for cats and Version 2 for dogs 
-     image: mikesir87/cats:1.0
-     labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.catapp.rule=Host(`catapp.docker.localhost`)"
-      - "traefik.http.routers.catapp.service=catapp"
-      - "traefik.http.services.catapp.loadbalancer.server.port=5000"
+#     image: mikesir87/cats:1.0
+#     labels:
+#      - "traefik.enable=true"
+#      - "traefik.http.routers.catapp.rule=Host(`catapp.docker.localhost`)"
+#      - "traefik.http.routers.catapp.service=catapp"
+#      - "traefik.http.services.catapp.loadbalancer.server.port=5000"
 #Part 4 Middleware
-      - "traefik.http.routers.catapp.middlewares=test-compress"
-      - "traefik.http.middlewares.test-compress.compress=true"
+#      - "traefik.http.routers.catapp.middlewares=test-compress"
+#      - "traefik.http.middlewares.test-compress.compress=true"
 
 #################################
 #Part 4.5 Basic auth and problems with Windows and security
