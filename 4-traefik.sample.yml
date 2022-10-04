@@ -37,13 +37,13 @@ entryPoints:
 #
 # Optional
 #
-#log:
+log:
   # Log level
   #
   # Optional
   # Default: "ERROR"
   #
-#  level: DEBUG
+  level: DEBUG
 
   # Sets the filepath for the traefik log. If not specified, stdout will be used.
   # Intermediate directories are created if necessary.
@@ -51,7 +51,7 @@ entryPoints:
   # Optional
   # Default: os.Stdout
   #
-#  filePath: log/traefik.log
+  filePath: /dockerdata/logs/traefik.log
 
   # Format is either "json" or "common".
   #
@@ -70,14 +70,14 @@ entryPoints:
 #
 # Optional
 #
-#accessLog:
+accessLog:
   # Sets the file path for the access log. If not specified, stdout will be used.
   # Intermediate directories are created if necessary.
   #
   # Optional
   # Default: os.Stdout
   #
-#  filePath: /path/to/log/log.txt
+  filePath: /dockerdata/logs/traefik-access.log
 
   # Format is either "json" or "common".
   #
@@ -94,20 +94,20 @@ entryPoints:
 #
 # Optional
 #
-#api:
+api:
   # Enable the API in insecure mode
   #
   # Optional
   # Default: false
   #
-#  insecure: true
+  insecure: true
 
   # Enabled Dashboard
   #
   # Optional
   # Default: true
   #
-#  dashboard: false
+  # dashboard: false
 
 ################################################################
 # Ping configuration
@@ -126,13 +126,13 @@ entryPoints:
 # Docker configuration backend
 ################################################################
 
-#providers:
+providers:
   # Enable Docker configuration backend
-#  docker:
+  docker:
     # Docker server endpoint. Can be a tcp or a unix socket endpoint.
     #
     # Required
-    # Default: "unix:///var/run/docker.sock"
+    endpoint: "unix:///var/run/docker.sock"
     #
 #    endpoint: tcp://10.10.10.10:2375
 
@@ -146,6 +146,6 @@ entryPoints:
     # Expose containers by default in traefik
     #
     # Optional
-    # Default: true
+    #Default: true
     #
 #    exposedByDefault: false
