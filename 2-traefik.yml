@@ -5,7 +5,7 @@ services:
     # The official v2 Traefik docker image
     image: traefik:v2.9
     # Enables the web UI and tells Traefik to listen to docker
-    command: --api.insecure=true --providers.docker # Stop automatic Traefik port expose --providers.docker.exposedByDefault=false  # Logs --log.filePath=/dockerdata/logs/traefik.log --log.level=DEBUG --providers.docker.exposedByDefault=false --accesslog=true --accesslog.filepath=/dockerdata/logs/traefik-access.log
+    command: --api.insecure=true --providers.docker --providers.docker.exposedByDefault=false #--log.filePath=/dockerdata/logs/traefik.log --log.level=DEBUG --accesslog=true --accesslog.filepath=/dockerdata/logs/traefik-access.log #--configFile=/etc/traefik/traefik.yml
     
     ports:
       # The HTTP port
@@ -18,6 +18,9 @@ services:
 # We will need this on part 4.5
 #      - C:\docker\mount:/mnt/basic-auth
 #      - C:\docker\logs:/dockerdata/logs
+#      # Traefik configuration file
+#      - C:\docker\traefik\traefik.yml:/etc/traefik/traefik.yml
+
 
 # 0 If you run this in Windows Computer you will need a environment variable
     environment:
