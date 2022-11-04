@@ -1,16 +1,24 @@
 
 # Docker composer basics
 
-## Lets make folders
+## Lets make folders (Windows)
 
     mkdir -p c:\docker\weptop
     mkdir -p c:\docker\mount
     mkdir -p c:\docker\traefik
     mkdir -p c:\docker\logs
 
+#### Mac computer only
+
+    mkdir ~\docker\weptop
+    mkdir ~\docker\mount
+    mkdir ~\docker\traefik
+    mkdir ~\docker\logs
+    
 
 ## Create a Docker composer file
 
+### Manual way
     nano docker-compose.yml
 
     OR
@@ -18,10 +26,14 @@
     code docker-compose.yml
 
     OR
-
+### Automation
     cd c:\docker\traefik
 
-    Invoke-WebRequest -Uri https://gist.githubusercontent.com/TeroKeso/19ca6d54a3811cb22ada4c1ca477b8b2/raw/0fcd5c830ad69d65aad3905d144a7efb844e3508/traefik.yml -OutFile docker-compose.yml -UseBasicParsing
+    Invoke-WebRequest -Uri https://raw.githubusercontent.com/TeroKeso/Traefik_2022/main/2-traefik.yml -OutFile docker-compose.yml -UseBasicParsing
+    
+    MAC
+    curl https://raw.githubusercontent.com/TeroKeso/Traefik_2022/main/2-traefik.yml --output docker-compose.yml
+    
 
 
 # Start a docker composer prosess by reading docker-compose.yml
