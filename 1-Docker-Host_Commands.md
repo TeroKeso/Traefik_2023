@@ -49,8 +49,8 @@
 # Docker-compose up and scale
 
     docker-compose up -d
-    docker-compose up --scale whoami=2
-    docker-compose up --scale whoami=3
+    docker-compose up --scale whoami=2 -d
+    docker-compose up --scale whoami=3 -d
  
  # Docker stop and remove container
 
