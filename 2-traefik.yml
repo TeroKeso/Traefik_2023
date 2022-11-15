@@ -39,9 +39,6 @@ services:
 #    - "traefik.enable=true"   ##Because exposedByDefault setting is false we need to enable everytime.
 #    - "traefik.http.routers.started.rule=Host(`started.docker.localhost`)"
 #    - "traefik.http.services.started.loadbalancer.server.port=80"
-##########################################################################
-# Why getting-started is working 
-#
 ##########################################################################  
 #Part 3
 #  catapp:
