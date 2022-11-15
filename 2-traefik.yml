@@ -4,7 +4,7 @@ services:
   reverse-proxy:
     # The official v2 Traefik docker image
     image: traefik:v2.9
-    # Enables the web UI and tells Traefik to listen to docker
+    # Enables the web UI and tells Traefik to listen to docker. --providers.docker.exposedByDefault=false so you need to enable ALL containers with - "traefik.enable=true" label
     command: --api.insecure=true --providers.docker --providers.docker.exposedByDefault=false #--log.filePath=/dockerdata/logs/traefik.log --log.level=DEBUG --accesslog=true --accesslog.filepath=/dockerdata/logs/traefik-access.log #--configFile=/etc/traefik/traefik.yml
     
     ports:
@@ -36,10 +36,12 @@ services:
 #getting-started:
 #  image: docker/getting-started
 #  labels:
-#    - "traefik.enable=true"
+#    - "traefik.enable=true"   ##Because exposedByDefault setting is false we need to enable everytime.
 #    - "traefik.http.routers.started.rule=Host(`started.docker.localhost`)"
 #    - "traefik.http.services.started.loadbalancer.server.port=80"
-
+##########################################################################
+# Why getting-started is working 
+#
 ##########################################################################  
 #Part 3
 #  catapp:
