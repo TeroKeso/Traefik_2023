@@ -56,7 +56,7 @@
 
     docker ps 
     docker stop CONTAINERNAME / ID
-    docker remove CONTAINERNAME / ID
+    docker rm CONTAINERNAME / ID
 
 
 # Update docker Composer image
