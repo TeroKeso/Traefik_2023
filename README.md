@@ -1,2 +1,2 @@
-# Traefik_2022
-Traefik 2022 sample configs
+# Traefik_2023
+Traefik 2023 sample configs

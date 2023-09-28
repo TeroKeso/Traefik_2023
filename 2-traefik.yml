@@ -3,7 +3,7 @@ version: '3'
 services:
   reverse-proxy:
     # The official v2 Traefik docker image
-    image: traefik:v2.9
+    image: traefik:v2.10.4
     # Enables the web UI and tells Traefik to listen to docker. --providers.docker.exposedByDefault=false so you need to enable ALL containers with - "traefik.enable=true" label
     command: --api.insecure=true --providers.docker --providers.docker.exposedByDefault=false #--log.filePath=/dockerdata/logs/traefik.log --log.level=DEBUG --accesslog=true --accesslog.filepath=/dockerdata/logs/traefik-access.log #--configFile=/etc/traefik/traefik.yml
     
