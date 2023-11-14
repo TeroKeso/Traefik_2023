@@ -10,10 +10,13 @@
 
 #### Mac computer only
 
-    mkdir ~\docker\weptop
-    mkdir ~\docker\mount
-    mkdir ~\docker\traefik
-    mkdir ~\docker\logs
+    cd ~
+    mkdir docker
+    cd docker 
+    mkdir weptop
+    mkdir mount
+    mkdir traefik
+    mkdir logs
     
 
 ## Create a Docker composer file
